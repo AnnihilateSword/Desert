@@ -19,5 +19,10 @@ set(CMAKE_SYSTEM_VERSION 10.0.22621.0)
 # 设置构建类型
 # set(CMAKE_CONFIGURATION_TYPES "Debug;Release;Dist")
 
+# 设置 VS 启动项目
+if (MSVC)
+    set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT Sandbox)
+endif()
+
 add_subdirectory(Desert)
 add_subdirectory(Sandbox)

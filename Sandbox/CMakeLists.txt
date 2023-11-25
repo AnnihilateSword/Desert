@@ -7,11 +7,6 @@ set(CMAKE_CXX_STANDARD 17)
 # 指定 Windows SDK 版本
 set(CMAKE_SYSTEM_VERSION 10.0.22621.0)
 
-# 设置 VS 启动项目
-if (MSVC)
-    set_property (DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${PROJECT_NAME})
-endif()
-
 # 递归查找 src 目录下所有 .cpp 和 .h
 file(GLOB_RECURSE CMakeTESTSources src/*.cpp src/*.h)
 
