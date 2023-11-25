@@ -1,0 +1,6 @@
+[submodule "Desert/vendor/glfw"]
+	path = Desert/vendor/glfw
+	url = https://github.com/AnnihilateSword/glfw
+[submodule "Desert/vendor/spdlog"]
+	path = Desert/vendor/spdlog
+	url = https://github.com/AnnihilateSword/spdlog
