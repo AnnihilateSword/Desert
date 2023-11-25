@@ -33,7 +33,10 @@ class Sandbox : public Desert::Application
 public:
 	Sandbox()
 	{
+		// 在头部插入
 		PushLayer(new ExampleLayer());
+		// 在尾部插入
+		PushOverlay(new Desert::ImguiLayer());
 	}
 
 	~Sandbox()

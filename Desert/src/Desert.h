@@ -6,6 +6,8 @@
 #include "Desert/Log.h"
 #include "Desert/Layer.h"
 
+#include "Desert/ImGui/ImGuiLayer.h"
+
 // ---Entry Point---------------------
 #include "Desert/EntryPoint.h"
 // -----------------------------------

@@ -1,4 +1,4 @@
-//#include "DesertPCH.h"
+#include "DesertPCH.h"
 #include "Application.h"
 
 #include <GLFW/glfw3.h>
@@ -7,8 +7,13 @@ namespace Desert {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
+	Application* Application::s_Instance = nullptr;
+
 	Application::Application()
 	{
+		DESERT_CORE_ASSERT(!s_Instance, "Application already exists!");
+		s_Instance = this;
+
 		// 创建窗口
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		// 设置窗口的事件回调函数
@@ -27,6 +32,7 @@ namespace Desert {
 			glClearColor(1, 0, 1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
 
+			// 从前往后渲染 Layer
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
 
@@ -39,6 +45,7 @@ namespace Desert {
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
 
+		// 从后往前遍历执行时间
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
 		{
 			(*--it)->OnEvent(e);
@@ -53,11 +60,13 @@ namespace Desert {
 	void Application::PushLayer(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
+		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* layer)
 	{
 		m_LayerStack.PushOverlay(layer);
+		layer->OnAttach();
 	}
 
 	bool Application::OnWindowClose(WindowCloseEvent& e)

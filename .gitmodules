@@ -4,3 +4,7 @@
 [submodule "Desert/vendor/spdlog"]
 	path = Desert/vendor/spdlog
 	url = https://github.com/AnnihilateSword/spdlog
+[submodule "Desert/vendor/imgui"]
+	path = Desert/vendor/imgui
+	url = https://github.com/AnnihilateSword/imgui
+	branch = docking

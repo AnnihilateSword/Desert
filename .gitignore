@@ -2,6 +2,9 @@
 **/Debug/
 **/Release/
 
+# ImGui
+**imgui.ini
+
 # CMake
 **CMakeLists.txt.user
 **CMakeCache.txt
