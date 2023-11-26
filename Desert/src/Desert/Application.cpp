@@ -2,6 +2,7 @@
 #include "Application.h"
 
 #include <GLFW/glfw3.h>
+#include "Desert/Input.h"
 
 namespace Desert {
 
@@ -35,6 +36,9 @@ namespace Desert {
 			// ´ÓÇ°ÍùºóäÖÈ¾ Layer
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
+
+			auto p = Input::GetMousePosition();
+			DESERT_CORE_TRACE("{0}, {1}", std::get<0>(p), std::get<1>(p));
 
 			m_Window->OnUpdate();
 		}

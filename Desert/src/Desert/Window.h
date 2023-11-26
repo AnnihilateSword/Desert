@@ -39,6 +39,8 @@ namespace Desert {
 		virtual void SetVSync(bool enabled) = 0;
 		virtual bool IsVSync() const = 0;
 
+		virtual void* GetNativeWindow() = 0;
+
 		// ´´½¨´°¿Ú
 		static Window* Create(const WindowProps& props = WindowProps());
 	};
