@@ -13,6 +13,10 @@
 
 #endif
 
+#ifdef DESERT_DEBUG
+	#define DESERT_ENABLE_ASSERTS
+#endif
+
 #ifdef DESERT_ENABLE_ASSERTS
 
 	#define DESERT_ASSERT(x, ...) { if(!(x)) { DESERT_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
