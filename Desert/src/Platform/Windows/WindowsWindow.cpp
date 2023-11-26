@@ -35,13 +35,13 @@ namespace Desert {
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
 
-		DESERT_CORE_INFO("Creating window {0} ({1}, {2})", props.Title, props.Width, props.Height);
+		DT_CORE_INFO("Creating window {0} ({1}, {2})", props.Title, props.Width, props.Height);
 
 		if (!s_GLFWInitialized)
 		{
 			// TODO: glfwTerminate on system shutdown
 			int success = glfwInit();
-			DESERT_CORE_ASSERT(success, "Could not intialize GLFW!");
+			DT_CORE_ASSERT(success, "Could not intialize GLFW!");
 
 			s_GLFWInitialized = true;
 		}
@@ -50,7 +50,7 @@ namespace Desert {
 		glfwMakeContextCurrent(m_Window);
 
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		DESERT_CORE_ASSERT(status, "Failed to initialize Glad!");
+		DT_CORE_ASSERT(status, "Failed to initialize Glad!");
 
 		// 设置窗口用户指针
 		glfwSetWindowUserPointer(m_Window, &m_Data);

@@ -12,7 +12,7 @@ namespace Desert {
 
 	Application::Application()
 	{
-		DESERT_CORE_ASSERT(!s_Instance, "Application already exists!");
+		DT_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
 
 		// 创建窗口
@@ -37,9 +37,6 @@ namespace Desert {
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
 
-			auto p = Input::GetMousePosition();
-			DESERT_CORE_TRACE("{0}, {1}", std::get<0>(p), std::get<1>(p));
-
 			m_Window->OnUpdate();
 		}
 	}
@@ -56,9 +53,6 @@ namespace Desert {
 			if (e.Handled)
 				break;
 		}
-
-		// 打印事件消息
-		DESERT_CORE_TRACE("{0}", e);
 	}
 
 	void Application::PushLayer(Layer* layer)

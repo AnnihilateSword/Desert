@@ -21,13 +21,13 @@ namespace Desert {
 }
 
 // Core log macros
-#define DESERT_CORE_ERROR(...)     ::Desert::Log::GetCoreLogger()->error(__VA_ARGS__)
-#define DESERT_CORE_WARN(...)      ::Desert::Log::GetCoreLogger()->warn(__VA_ARGS__)
-#define DESERT_CORE_INFO(...)      ::Desert::Log::GetCoreLogger()->info(__VA_ARGS__)
-#define DESERT_CORE_TRACE(...)     ::Desert::Log::GetCoreLogger()->trace(__VA_ARGS__)
+#define DT_CORE_ERROR(...)     ::Desert::Log::GetCoreLogger()->error(__VA_ARGS__)
+#define DT_CORE_WARN(...)      ::Desert::Log::GetCoreLogger()->warn(__VA_ARGS__)
+#define DT_CORE_INFO(...)      ::Desert::Log::GetCoreLogger()->info(__VA_ARGS__)
+#define DT_CORE_TRACE(...)     ::Desert::Log::GetCoreLogger()->trace(__VA_ARGS__)
 
 // Client log macros
-#define DESERT_ERROR(...)          ::Desert::Log::GetClientLogger()->error(__VA_ARGS__)
-#define DESERT_WARN(...)           ::Desert::Log::GetClientLogger()->warn(__VA_ARGS__)
-#define DESERT_INFO(...)           ::Desert::Log::GetClientLogger()->info(__VA_ARGS__)
-#define DESERT_TRACE(...)          ::Desert::Log::GetClientLogger()->trace(__VA_ARGS__)
+#define DT_ERROR(...)          ::Desert::Log::GetClientLogger()->error(__VA_ARGS__)
+#define DT_WARN(...)           ::Desert::Log::GetClientLogger()->warn(__VA_ARGS__)
+#define DT_INFO(...)           ::Desert::Log::GetClientLogger()->info(__VA_ARGS__)
+#define DT_TRACE(...)          ::Desert::Log::GetClientLogger()->trace(__VA_ARGS__)

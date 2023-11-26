@@ -7,9 +7,9 @@ extern Desert::Application* Desert::CreateApplication();
 int main(int argc, char** argv)
 {
 	Desert::Log::Init();
-	DESERT_CORE_WARN("Initialized Log!");
+	DT_CORE_WARN("Initialized Log!");
 	int a = 5;
-	DESERT_ERROR("Hello! var={0}", a);
+	DT_ERROR("Hello! var={0}", a);
 
 	auto app = Desert::CreateApplication();
 	app->Run();

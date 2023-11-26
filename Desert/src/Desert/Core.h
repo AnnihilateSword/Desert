@@ -19,17 +19,17 @@
 
 #ifdef DESERT_ENABLE_ASSERTS
 
-	#define DESERT_ASSERT(x, ...) { if(!(x)) { DESERT_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
-	#define DESERT_CORE_ASSERT(x, ...) { if(!(x)) { DESERT_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+	#define DT_ASSERT(x, ...) { if(!(x)) { DT_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+	#define DT_CORE_ASSERT(x, ...) { if(!(x)) { DT_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 
 #else
 
-	#define DESERT_ASSERT(x, ...)
-	#define DESERT_CORE_ASSERT(x, ...)
+	#define DT_ASSERT(x, ...)
+	#define DT_CORE_ASSERT(x, ...)
 
 #endif
 
 #define BIT(x) (1 << x)
 
 
-#define DESERT_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
+#define DT_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)

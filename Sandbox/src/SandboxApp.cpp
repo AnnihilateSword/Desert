@@ -18,12 +18,19 @@ public:
 
 	void OnUpdate() override
 	{
-		DESERT_INFO("ExampleLayer::Update");
+		if (Desert::Input::IsKeyPressed(DT_KEY_TAB))
+		{
+			DT_TRACE("Tab key is pressed!");
+		}
 	}
 
 	void OnEvent(Desert::Event& event) override
 	{
-		DESERT_TRACE("{0}", event);
+		if (event.GetEventType() == Desert::EventType::ET_KeyPressed)
+		{
+			Desert::KeyReleasedEvent& e = (Desert::KeyReleasedEvent&)event;
+			DT_CORE_TRACE("{0}", (char)e.GetKeyCode());
+		}
 	}
 
 };
