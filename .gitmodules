@@ -8,3 +8,6 @@
 	path = Desert/vendor/imgui
 	url = https://github.com/AnnihilateSword/imgui
 	branch = docking
+[submodule "Desert/vendor/glm"]
+	path = Desert/vendor/glm
+	url = https://github.com/g-truc/glm

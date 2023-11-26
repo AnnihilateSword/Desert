@@ -14,8 +14,12 @@ elseif(UNIX)
     # TODO
 endif()
 
-# 递归查找 src 目录下所有 .cpp 和 .h
-file(GLOB_RECURSE DesertSources src/*.cpp src/*.h)
+# 递归查找 src 目录下所有 .cpp 和 .h 以及其他
+file(GLOB_RECURSE DesertSources
+src/*.cpp
+src/*.h
+vendor/glm/*.hpp
+vendor/glm/*.inl)
 
 # 生成动态库
 add_library(${PROJECT_NAME} SHARED ${DesertSources})
@@ -54,7 +58,8 @@ ${CMAKE_CURRENT_LIST_DIR}/src
 ${CMAKE_CURRENT_LIST_DIR}/vendor/spdlog/include
 ${CMAKE_CURRENT_LIST_DIR}/vendor/glfw/include
 ${CMAKE_CURRENT_LIST_DIR}/vendor/glad/include
-${CMAKE_CURRENT_LIST_DIR}/vendor/imgui)
+${CMAKE_CURRENT_LIST_DIR}/vendor/imgui
+${CMAKE_CURRENT_LIST_DIR}/vendor/glm)
 
 # glfw
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/vendor/glfw)

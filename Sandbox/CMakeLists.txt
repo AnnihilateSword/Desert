@@ -8,7 +8,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_SYSTEM_VERSION 10.0.22621.0)
 
 # 递归查找 src 目录下所有 .cpp 和 .h
-file(GLOB_RECURSE CMakeTESTSources src/*.cpp src/*.h)
+file(GLOB_RECURSE CMakeTESTSources
+src/*.cpp
+src/*.h)
 
 # 生成可执行文件
 add_executable(${PROJECT_NAME} ${CMakeTESTSources})
@@ -38,7 +40,8 @@ $<$<CONFIG:Dist>:DESERT_DIST>
 # include 目录
 target_include_directories(${PROJECT_NAME}
 PUBLIC
-${CMAKE_CURRENT_LIST_DIR}/src)
+${CMAKE_CURRENT_LIST_DIR}/src
+${CMAKE_CURRENT_LIST_DIR}/../Desert/vendor/glm)
 
 # 如果是项目会优先引用项目，如果不是则链接库
 target_link_libraries(${PROJECT_NAME} Desert)
