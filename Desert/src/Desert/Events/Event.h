@@ -15,7 +15,7 @@ namespace Desert {
 		None = 0,
 		ET_WindowClose, ET_WindowResize, ET_WindowFocus, ET_WindowLostFocus, ET_WindowMoved,
 		ET_AppTick, ET_AppUpdate, ET_AppRender,
-		ET_KeyPressed, ET_KeyReleased,
+		ET_KeyPressed, ET_KeyReleased, ET_KeyTyped,
 		ET_MouseButtonPressed, ET_MouseButtonReleased, ET_MouseMoved, ET_MouseScrolled
 	};
 

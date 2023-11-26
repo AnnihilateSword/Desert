@@ -36,7 +36,7 @@ public:
 		// 在头部插入
 		PushLayer(new ExampleLayer());
 		// 在尾部插入
-		PushOverlay(new Desert::ImguiLayer());
+		PushOverlay(new Desert::ImGuiLayer());
 	}
 
 	~Sandbox()
