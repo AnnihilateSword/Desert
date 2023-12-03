@@ -7,6 +7,8 @@
 #include "Desert/Events/Event.h"
 #include "Desert/Events/ApplicationEvent.h"
 
+#include "ImGui/ImGuiLayer.h"
+
 namespace Desert {
 
 	class DESERT_API Application
@@ -24,6 +26,7 @@ namespace Desert {
 
 		inline Window& GetWindow() const { return *m_Window; }
 		inline static Application& Get() { return *s_Instance; }
+		inline static ImGuiContext* GetImGuiContext() { return s_ImGuiLayer->GetImGuiContext(); }
 
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
@@ -34,6 +37,7 @@ namespace Desert {
 
 	private:
 		static Application* s_Instance;
+		static ImGuiLayer* s_ImGuiLayer;
 	};
 
 	// 在客户端定义

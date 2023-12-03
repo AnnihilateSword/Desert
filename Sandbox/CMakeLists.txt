@@ -40,8 +40,7 @@ $<$<CONFIG:Dist>:DESERT_DIST>
 # include 目录
 target_include_directories(${PROJECT_NAME}
 PUBLIC
-${CMAKE_CURRENT_LIST_DIR}/src
-${CMAKE_CURRENT_LIST_DIR}/../Desert/vendor/glm)
+${CMAKE_CURRENT_LIST_DIR}/src)
 
 # 如果是项目会优先引用项目，如果不是则链接库
 target_link_libraries(${PROJECT_NAME} Desert)

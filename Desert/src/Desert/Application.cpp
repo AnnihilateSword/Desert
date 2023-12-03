@@ -9,6 +9,7 @@ namespace Desert {
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
 	Application* Application::s_Instance = nullptr;
+	ImGuiLayer* Application::s_ImGuiLayer = nullptr;
 
 	Application::Application()
 	{
@@ -19,6 +20,10 @@ namespace Desert {
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		// 设置窗口的事件回调函数
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
+
+		s_ImGuiLayer = new ImGuiLayer();
+		// 在尾部插入
+		PushOverlay(s_ImGuiLayer);
 	}
 
 	Application::~Application()
@@ -36,6 +41,11 @@ namespace Desert {
 			// 从前往后渲染 Layer
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
+
+			s_ImGuiLayer->Begin();
+			for (Layer* layer : m_LayerStack)
+				layer->OnImGuiRender();
+			s_ImGuiLayer->End();
 
 			m_Window->OnUpdate();
 		}
@@ -58,13 +68,11 @@ namespace Desert {
 	void Application::PushLayer(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
-		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* layer)
 	{
 		m_LayerStack.PushOverlay(layer);
-		layer->OnAttach();
 	}
 
 	bool Application::OnWindowClose(WindowCloseEvent& e)

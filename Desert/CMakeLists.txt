@@ -77,7 +77,7 @@ add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/vendor/imgui)
 # ${CMAKE_SOURCE_DIR}/build/${PROJECT_NAME}/vendor/glad/src)
 
 # 如果是项目会优先引用项目，如果不是则链接库
-target_link_libraries(${PROJECT_NAME} glfw glad opengl32 imgui)
+target_link_libraries(${PROJECT_NAME} PUBLIC glfw glad opengl32 imgui)
 
 # ---------------------------------------------------------------------------------------------------------------
 # 拷贝 DLL 操作
