@@ -2,11 +2,15 @@
 
 #ifdef DESERT_PLATFORM_WINDOWS
 
+#if DESERT_DYNAMIC_LINK
 	#ifdef DESERT_BUILD_DLL
 		#define DESERT_API __declspec(dllexport)
 	#else
 		#define DESERT_API __declspec(dllimport)
 	#endif
+#else
+	#define DESERT_API
+#endif
 
 #else
 	#error Desert only supports windows!
